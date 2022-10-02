@@ -30,6 +30,12 @@ public class HomeController {
     @Autowired
     private UserService userService;
 
+    /**
+     * 跳转到首页
+     * @param model
+     * @param page
+     * @return
+     */
     @RequestMapping(path = "/index", method = RequestMethod.GET)
     public String getIndexPage(Model model, Page page) {
         //方法调用栈,SpringMVC会自动实例化莫得了和page,并将page注入model
