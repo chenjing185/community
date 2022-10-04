@@ -25,16 +25,16 @@
 					<div class="collapse navbar-collapse" id="navbarSupportedContent">
 						<ul class="navbar-nav mr-auto">
 							<li class="nav-item ml-3 btn-group-vertical">
-								<a class="nav-link" th:href="@{/index}">首页</a>
+								<a class="nav-link" href="../index.html">首页</a>
 							</li>
 							<li class="nav-item ml-3 btn-group-vertical">
 								<a class="nav-link position-relative" href="letter.html">消息<span class="badge badge-danger">12</span></a>
 							</li>
 							<li class="nav-item ml-3 btn-group-vertical">
-								<a class="nav-link" th:href="@{/register}">注册</a>
+								<a class="nav-link" href="register.html">注册</a>
 							</li>
 							<li class="nav-item ml-3 btn-group-vertical">
-								<a class="nav-link" th:href="@{/login}">登录</a>
+								<a class="nav-link" href="login.html">登录</a>
 							</li>
 							<li class="nav-item ml-3 btn-group-vertical dropdown">
 								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -67,10 +67,11 @@
 					<div class="form-group row">
 						<label for="username" class="col-sm-2 col-form-label text-right">账号:</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" th:class="|form-control ${usernameMsg!=null?'is-invalid':''}|"
+							<input type="text"
+								   th:class="|form-control ${usernameMsg!=null?'is-invalid':''}|"
 								   th:value="${user!=null?user.username:''}"
 								   id="username" name="username" placeholder="请输入您的账号!" required>
-							<div class="invalid-feedback">
+							<div class="invalid-feedback" th:text="${usernameMsg}">
 								该账号已存在!
 							</div>
 						</div>
@@ -78,10 +79,11 @@
 					<div class="form-group row mt-4">
 						<label for="password" class="col-sm-2 col-form-label text-right">密码:</label>
 						<div class="col-sm-10">
-							<input type="password" class="form-control" th:class="|form-control ${passwordMsg!=null?'is-invalid':''}|"
+							<input type="password"
+								   th:class="|form-control ${passwordMsg!=null?'is-invalid':''}|"
 								   th:value="${user!=null?user.password:''}"
 								   id="password" name="password" placeholder="请输入您的密码!" required>
-							<div class="invalid-feedback">
+							<div class="invalid-feedback" th:text="${passwordMsg}">
 								密码长度不能小于8位!
 							</div>							
 						</div>
@@ -89,7 +91,8 @@
 					<div class="form-group row mt-4">
 						<label for="confirm-password" class="col-sm-2 col-form-label text-right">确认密码:</label>
 						<div class="col-sm-10">
-							<input type="password" class="form-control" th:value="${user!=null?user.password:''}"
+							<input type="password" class="form-control"
+								   th:value="${user!=null?user.password:''}"
 								   id="confirm-password" placeholder="请再次输入密码!" required>
 							<div class="invalid-feedback">
 								两次输入的密码不一致!
@@ -99,10 +102,11 @@
 					<div class="form-group row">
 						<label for="email" class="col-sm-2 col-form-label text-right">邮箱:</label>
 						<div class="col-sm-10">
-							<input type="email" class="form-control" th:class="|form-control ${emailMsg!=null?'is-invalid':''}|"
+							<input type="email"
+								   th:class="|form-control ${emailMsg!=null?'is-invalid':''}|"
 								   th:value="${user!=null?user.email:''}"
 								   id="email" name="email" placeholder="请输入您的邮箱!" required>
-							<div class="invalid-feedback">
+							<div class="invalid-feedback" th:text="${emailMsg}">
 								该邮箱已注册!
 							</div>
 						</div>

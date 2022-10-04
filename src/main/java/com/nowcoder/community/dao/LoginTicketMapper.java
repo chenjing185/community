@@ -3,11 +3,6 @@ package com.nowcoder.community.dao;
 import com.nowcoder.community.entity.LoginTicket;
 import org.apache.ibatis.annotations.*;
 
-/**
- * @author 陈靖
- * @date 2022/10/2
- * @describe
- */
 @Mapper
 public interface LoginTicketMapper {
 
@@ -32,6 +27,6 @@ public interface LoginTicketMapper {
             "</if>",
             "</script>"
     })
-    int updateStatus(String ticket,int status);
+    int updateStatus(String ticket, int status);
 
 }

@@ -2,12 +2,8 @@ package com.nowcoder.community.entity;
 
 import java.util.Date;
 
-/**
- * @author 陈靖
- * @date 2022/9/25
- * @describe
- */
 public class DiscussPost {
+
     private int id;
     private int userId;
     private String title;

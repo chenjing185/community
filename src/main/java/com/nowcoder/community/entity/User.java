@@ -2,12 +2,8 @@ package com.nowcoder.community.entity;
 
 import java.util.Date;
 
-/**
- * @author 陈靖
- * @date 2022/9/24
- * @describe
- */
 public class User {
+
     private int id;
     private String username;
     private String password;
@@ -99,23 +95,6 @@ public class User {
         this.createTime = createTime;
     }
 
-    public User() {
-
-    }
-
-    public User(int id, String username, String password, String salt, String email, int type, int status, String activationCode, String headerUrl, Date createTime) {
-        this.id = id;
-        this.username = username;
-        this.password = password;
-        this.salt = salt;
-        this.email = email;
-        this.type = type;
-        this.status = status;
-        this.activationCode = activationCode;
-        this.headerUrl = headerUrl;
-        this.createTime = createTime;
-    }
-
     @Override
     public String toString() {
         return "User{" +
@@ -131,4 +110,5 @@ public class User {
                 ", createTime=" + createTime +
                 '}';
     }
+
 }

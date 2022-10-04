@@ -2,12 +2,8 @@ package com.nowcoder.community.entity;
 
 import java.util.Date;
 
-/**
- * @author 陈靖
- * @date 2022/10/2
- * @describe
- */
 public class LoginTicket {
+
     private int id;
     private int userId;
     private String ticket;
