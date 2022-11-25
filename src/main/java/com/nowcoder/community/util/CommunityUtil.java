@@ -1,8 +1,8 @@
 package com.nowcoder.community.util;
 
+import com.alibaba.fastjson.JSONException;
+import com.alibaba.fastjson.JSONObject;
 import org.apache.commons.lang3.StringUtils;
-import org.json.JSONException;
-import org.json.JSONObject;
 import org.springframework.util.DigestUtils;
 
 import java.util.HashMap;
