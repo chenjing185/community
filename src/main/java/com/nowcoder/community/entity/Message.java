@@ -2,12 +2,8 @@ package com.nowcoder.community.entity;
 
 import java.util.Date;
 
-/**
- * @author 陈靖
- * @date 2022/11/13
- * @describe
- */
 public class Message {
+
     private int id;
     private int fromId;
     private int toId;

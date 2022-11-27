@@ -50,5 +50,4 @@ public class RedisKeyUtil {
         return PREFIX_USER + SPLIT + userId;
     }
 
-
 }

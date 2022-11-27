@@ -21,9 +21,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.*;
 
-import static com.nowcoder.community.util.CommunityConstant.ENTITY_TYPE_COMMENT;
-import static com.nowcoder.community.util.CommunityConstant.ENTITY_TYPE_POST;
-
 @Controller
 @RequestMapping("/discuss")
 public class DiscussPostController implements CommunityConstant {

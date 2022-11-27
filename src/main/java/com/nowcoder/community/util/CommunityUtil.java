@@ -1,6 +1,5 @@
 package com.nowcoder.community.util;
 
-import com.alibaba.fastjson.JSONException;
 import com.alibaba.fastjson.JSONObject;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.util.DigestUtils;
@@ -28,25 +27,21 @@ public class CommunityUtil {
 
     public static String getJSONString(int code, String msg, Map<String, Object> map) {
         JSONObject json = new JSONObject();
-        try {
-            json.put("code", code);
-            json.put("msg", msg);
-            if(map != null){
-                for(String key : map.keySet()){
-                    json.put(key, map.get(key));
-                }
+        json.put("code", code);
+        json.put("msg", msg);
+        if (map != null) {
+            for (String key : map.keySet()) {
+                json.put(key, map.get(key));
             }
-        } catch (JSONException e) {
-            e.printStackTrace();
         }
-        return json.toString();
+        return json.toJSONString();
     }
 
-    public static String getJSONString(int code, String msg){
+    public static String getJSONString(int code, String msg) {
         return getJSONString(code, msg, null);
     }
 
-    public static String getJSONString(int code){
+    public static String getJSONString(int code) {
         return getJSONString(code, null, null);
     }
 
@@ -56,4 +51,5 @@ public class CommunityUtil {
         map.put("age", 25);
         System.out.println(getJSONString(0, "ok", map));
     }
+
 }

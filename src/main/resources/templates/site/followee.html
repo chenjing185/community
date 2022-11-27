@@ -65,10 +65,14 @@
 					<!-- 选项 -->
 					<ul class="nav nav-tabs mb-3">
 						<li class="nav-item">
-							<a class="nav-link position-relative active" th:href="@{|/followees/${user.id}|}"><i class="text-info" th:utext="${user.username}">Nowcoder</i> 关注的人</a>
+							<a class="nav-link position-relative active" th:href="@{|/followees/${user.id}|}">
+								<i class="text-info" th:utext="${user.username}">Nowcoder</i> 关注的人
+							</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link position-relative" th:href="@{|/followers/${user.id}|}">关注 <i class="text-info" th:utext="${user.username}">Nowcoder</i> 的人</a>
+							<a class="nav-link position-relative" th:href="@{|/followers/${user.id}|}">
+								关注 <i class="text-info" th:utext="${user.username}">Nowcoder</i> 的人
+							</a>
 						</li>
 					</ul>
 					<a th:href="@{|/user/profile/${user.id}|}" class="text-muted position-absolute rt-0">返回个人主页&gt;</a>
@@ -83,11 +87,14 @@
 						<div class="media-body">
 							<h6 class="mt-0 mb-3">
 								<span class="text-success" th:utext="${map.user.username}">落基山脉下的闲人</span>
-								<span class="float-right text-muted font-size-12">关注于 <i th:text="${#dates.format(map.followTime,'yyyy-MM-dd HH:mm:ss')}">2019-04-28 14:13:25</i></span>
+								<span class="float-right text-muted font-size-12">
+									关注于 <i th:text="${#dates.format(map.followTime,'yyyy-MM-dd HH:mm:ss')}">2019-04-28 14:13:25</i>
+								</span>
 							</h6>
 							<div>
 								<input type="hidden" id="entityId" th:value="${map.user.id}">
-								<button type="button" th:class="|btn ${map.hasFollowed?'btn-secondary':'btn-info'} btn-sm float-right follow-btn|" th:if="${loginUser!=null && loginUser.id!=map.user.id}" th:text="${map.hasFollowed?'已关注':'关注TA'}">关注TA</button>
+								<button type="button" th:class="|btn ${map.hasFollowed?'btn-secondary':'btn-info'} btn-sm float-right follow-btn|"
+									th:if="${loginUser!=null && loginUser.id!=map.user.id}" th:text="${map.hasFollowed?'已关注':'关注TA'}">关注TA</button>
 							</div>
 						</div>
 					</li>

@@ -16,11 +16,11 @@
         select <include refid="selectFields"></include>
         from message
         where id in (
-        select max(id) from message
-        where status != 2
-        and from_id != 1
-        and (from_id = #{userId} or to_id = #{userId})
-        group by conversation_id
+            select max(id) from message
+            where status != 2
+            and from_id != 1
+            and (from_id = #{userId} or to_id = #{userId})
+            group by conversation_id
         )
         order by id desc
         limit #{offset}, #{limit}
@@ -28,12 +28,12 @@
 
     <select id="selectConversationCount" resultType="int">
         select count(m.maxid) from (
-                                       select max(id) as maxid from message
-                                       where status != 2
+            select max(id) as maxid from message
+            where status != 2
             and from_id != 1
             and (from_id = #{userId} or to_id = #{userId})
-                                       group by conversation_id
-                                   ) as m
+            group by conversation_id
+        ) as m
     </select>
 
     <select id="selectLetters" resultType="Message">
@@ -77,4 +77,5 @@
             #{id}
         </foreach>
     </update>
+
 </mapper>

@@ -97,7 +97,7 @@ public class RedisTests {
         redisTemplate.expire("test:students", 10, TimeUnit.SECONDS);
     }
 
-    // 批量发送命令,节约网络开销.
+    // 多次访问同一个key
     @Test
     public void testBoundOperations() {
         String redisKey = "test:count";
@@ -112,25 +112,24 @@ public class RedisTests {
 
     // 编程式事务
     @Test
-    public void testTransaction() {
-        Object result = redisTemplate.execute(new SessionCallback() {
+    public void testTransactional() {
+        Object obj = redisTemplate.execute(new SessionCallback() {
             @Override
-            public Object execute(RedisOperations redisOperations) throws DataAccessException {
-                String redisKey = "text:tx";
+            public Object execute(RedisOperations operations) throws DataAccessException {
+                String redisKey = "test:tx";
 
-                // 启用事务
-                redisOperations.multi();
-                redisOperations.opsForSet().add(redisKey, "zhangsan");
-                redisOperations.opsForSet().add(redisKey, "lisi");
-                redisOperations.opsForSet().add(redisKey, "wangwu");
+                operations.multi();
 
-                System.out.println(redisOperations.opsForSet().members(redisKey));
+                operations.opsForSet().add(redisKey, "zhangsan");
+                operations.opsForSet().add(redisKey, "lisi");
+                operations.opsForSet().add(redisKey, "wangwu");
 
-                // 提交事务
-                return redisOperations.exec();
+                System.out.println(operations.opsForSet().members(redisKey));
+
+                return operations.exec();
             }
         });
-        System.out.println(result);
+        System.out.println(obj);
     }
 
 }

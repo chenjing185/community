@@ -2,6 +2,7 @@ package com.nowcoder.community.service;
 
 import com.nowcoder.community.dao.CommentMapper;
 import com.nowcoder.community.entity.Comment;
+import com.nowcoder.community.util.CommunityConstant;
 import com.nowcoder.community.util.SensitiveFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,10 +13,8 @@ import org.springframework.web.util.HtmlUtils;
 
 import java.util.List;
 
-import static com.nowcoder.community.util.CommunityConstant.ENTITY_TYPE_POST;
-
 @Service
-public class CommentService {
+public class CommentService implements CommunityConstant {
 
     @Autowired
     private CommentMapper commentMapper;
@@ -52,6 +51,10 @@ public class CommentService {
         }
 
         return rows;
+    }
+
+    public Comment findCommentById(int id) {
+        return commentMapper.selectCommentById(id);
     }
 
 }

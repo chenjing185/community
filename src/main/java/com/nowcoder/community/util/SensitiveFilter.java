@@ -14,20 +14,15 @@ import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * @author 陈靖
- * @date 2022/11/2
- * @describe
- */
 @Component
 public class SensitiveFilter {
 
     private static final Logger logger = LoggerFactory.getLogger(SensitiveFilter.class);
 
-    //替换符
+    // 替换符
     private static final String REPLACEMENT = "***";
 
-    //根节点
+    // 根节点
     private TrieNode rootNode = new TrieNode();
 
     @PostConstruct
@@ -132,39 +127,39 @@ public class SensitiveFilter {
         return sb.toString();
     }
 
-    //判断是否为符号
-    private boolean isSymbol(Character c){
-        //ox2E80~0x9FFF 是东亚文字范围
+    // 判断是否为符号
+    private boolean isSymbol(Character c) {
+        // 0x2E80~0x9FFF 是东亚文字范围
         return !CharUtils.isAsciiAlphanumeric(c) && (c < 0x2E80 || c > 0x9FFF);
-
     }
 
-    //前缀树
-    private class TrieNode{
+    // 前缀树
+    private class TrieNode {
 
-        //关键词结束标识
+        // 关键词结束标识
         private boolean isKeywordEnd = false;
 
-        //子节点(key是下级字符,value是下级节点)
-        private Map<Character,TrieNode> subNodes = new HashMap<>();
+        // 子节点(key是下级字符,value是下级节点)
+        private Map<Character, TrieNode> subNodes = new HashMap<>();
 
-        public boolean isKeywordEnd(){
+        public boolean isKeywordEnd() {
             return isKeywordEnd;
         }
 
-        public void setKeywordEnd(boolean keywordEnd){
+        public void setKeywordEnd(boolean keywordEnd) {
             isKeywordEnd = keywordEnd;
         }
 
-        //添加子节点
-        public void addSubNode(Character c,TrieNode node){
-            subNodes.put(c,node);
+        // 添加子节点
+        public void addSubNode(Character c, TrieNode node) {
+            subNodes.put(c, node);
         }
 
-        //获取子节点
-        public TrieNode getSubNode(Character c){
+        // 获取子节点
+        public TrieNode getSubNode(Character c) {
             return subNodes.get(c);
         }
 
     }
+
 }

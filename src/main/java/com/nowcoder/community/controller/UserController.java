@@ -25,16 +25,11 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.util.Map;
 
-/**
- * @author 陈靖
- * @date 2022/10/6
- * @describe
- */
 @Controller
 @RequestMapping("/user")
 public class UserController implements CommunityConstant {
+
     private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 
     @Value("${community.path.upload}")
@@ -122,21 +117,6 @@ public class UserController implements CommunityConstant {
         }
     }
 
-    //修改密码
-    @RequestMapping(path = "/updatePassword",method = RequestMethod.POST)
-    public String updatePassword(String oldPassword,String newPassword,Model model){
-        User user = hostHolder.getUser();
-        Map<String, Object> map = userService.updatePassword(user.getId(), oldPassword, newPassword);
-        if (map == null || map.isEmpty()){
-            return "redirect:/logout";
-        }else {
-            model.addAttribute("oldPasswordMsg",map.get("oldPasswordMsg"));
-            model.addAttribute("newPasswordMsg",map.get("newPasswordMsg"));
-            return "/site/setting";
-        }
-
-    }
-
     // 个人主页
     @RequestMapping(path = "/profile/{userId}", method = RequestMethod.GET)
     public String getProfilePage(@PathVariable("userId") int userId, Model model) {
@@ -166,6 +146,5 @@ public class UserController implements CommunityConstant {
 
         return "/site/profile";
     }
-
 
 }

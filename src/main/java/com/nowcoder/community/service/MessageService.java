@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.util.HtmlUtils;
 
-import java.util.Arrays;
 import java.util.List;
 
 @Service
@@ -49,7 +48,4 @@ public class MessageService {
         return messageMapper.updateStatus(ids, 1);
     }
 
-    public int deleteMessage(int id) {
-        return messageMapper.updateStatus(Arrays.asList(new Integer[]{id}), 2);
-    }
 }

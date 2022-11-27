@@ -2,12 +2,8 @@ package com.nowcoder.community.entity;
 
 import java.util.Date;
 
-/**
- * @author 陈靖
- * @date 2022/11/11
- * @describe
- */
 public class Comment {
+
     private int id;
     private int userId;
     private int entityType;
