@@ -25,3 +25,7 @@ spring整合kafka
 2022/11/29
 新增功能如下:
 显示系统通知
+
+2022/11/29
+新增功能如下:
+spring整合elasticsearch
