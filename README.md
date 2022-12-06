@@ -29,3 +29,7 @@ spring整合kafka
 2022/11/29
 新增功能如下:
 spring整合elasticsearch
+
+2022/12/6
+新增功能如下:
+开发社区搜索功能
