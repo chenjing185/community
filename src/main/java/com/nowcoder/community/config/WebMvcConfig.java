@@ -19,9 +19,6 @@ public class WebMvcConfig implements WebMvcConfigurer {
     private LoginTicketInterceptor loginTicketInterceptor;
 
     @Autowired
-    private LoginRequiredInterceptor loginRequiredInterceptor;
-
-    @Autowired
     private MessageInterceptor messageInterceptor;
 
     @Override
@@ -31,9 +28,6 @@ public class WebMvcConfig implements WebMvcConfigurer {
                 .addPathPatterns("/register", "/login");
 
         registry.addInterceptor(loginTicketInterceptor)
-                .excludePathPatterns("/**/*.css", "/**/*.js", "/**/*.png", "/**/*.jpg", "/**/*.jpeg");
-
-        registry.addInterceptor(loginRequiredInterceptor)
                 .excludePathPatterns("/**/*.css", "/**/*.js", "/**/*.png", "/**/*.jpg", "/**/*.jpeg");
 
         registry.addInterceptor(messageInterceptor)
